@@ -12,17 +12,17 @@ The scripts are the default Create-React-App scripts. `npm install` will need to
 
 ## Routes
 
-### '/'
+### /
 The index page. Display a paginated table of all Pokemon in the database
 
-### '/signin'
+### /signin
 Login to the admin page from here. Must enter the secret key that matches with the one on the backend.
 
-### '/admin'
+### /admin
 /signin will redirect here if the correct secret key was entered. Without going to /signin first to enter the key, /admin will redirect to the index page.
 
-### '/create'
+### /create
 Page with the form to create a Pokemon.
 
-### '/search'
+### /search
 Page with the form to search Pokemon, simply enter whatever parameters you'd like and view a table of the filtered Pokemon by pressing enter, or the search button.
