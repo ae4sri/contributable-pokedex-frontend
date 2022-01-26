@@ -12,6 +12,11 @@ export const PokemonCard = ({ pokemon, reportPokemon }) => {
     height: 96,
     width: 96
   };
+  
+  let description = pokemon.description
+  if (description.length > 70 && pokemon.id > 899) {
+    description = description.slice(0,70).concat('...') // shorten description if it's too long to create space for report button
+  }
 
   const ReportPokemon = () => {
     if (pokemon.id > 898) { // Don't report default pokemon
@@ -42,8 +47,8 @@ export const PokemonCard = ({ pokemon, reportPokemon }) => {
 
         <Type type={pokemon.type1} />   <Type type={pokemon.type2} />
 
-        <Typography variant="body2" color="text.secondary" style={{ overflow: 'hidden', whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }} maxHeight={80}>
-          {pokemon.description}
+        <Typography variant="body2" color="text.secondary" style={{ overflow: 'hidden', whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }} sx={{ fontSize: 15 }} >
+          {description}
         </Typography>
 
       </CardContent>
