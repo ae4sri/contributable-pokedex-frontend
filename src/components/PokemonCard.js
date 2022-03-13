@@ -14,7 +14,7 @@ export const PokemonCard = ({ pokemon, reportPokemon }) => {
   };
   
   let description = pokemon.description
-  if (description.length > 70 && pokemon.id > 899) {
+  if (description && description.length > 70 && pokemon.id > 899) {
     description = description.slice(0,70).concat('...') // shorten description if it's too long to create space for report button
   }
 
@@ -47,15 +47,13 @@ export const PokemonCard = ({ pokemon, reportPokemon }) => {
 
         <Type type={pokemon.type1} />   <Type type={pokemon.type2} />
 
-        <Typography variant="body2" color="text.secondary" style={{ overflow: 'hidden', whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }} sx={{ fontSize: 15 }} >
+        <Typography variant="body2" color="text.secondary" style={{ overflow: 'hidden', whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }} sx={{ fontSize: 14 }} >
           {description}
         </Typography>
 
       </CardContent>
 
-      <div sx={{ display: 'flex', flexDirection: 'row' }}>
         <PokemonModal pokemon={pokemon} /> <ReportPokemon />
-      </div>
     </Card>
 
   );
