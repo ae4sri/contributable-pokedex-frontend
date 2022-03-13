@@ -3,7 +3,7 @@ import { Container } from '@mui/material'
 import React, { useEffect } from 'react'
 import { gql, useLazyQuery } from '@apollo/client'
 import { PaginationForDefaultTable } from '../Paginations/PaginationForDefaultTable';
-
+import { Banner } from '../Banner';
 
 const GET_20_POKEMON = gql`
 query get20Pokemon($indexLowerBound: Int!, $indexUpperBound: Int!) {
@@ -48,9 +48,11 @@ export const IndexPage = () => {
     <>
       <br />
       <Container>
+          <Banner />
           <PokemonTable pokemonList={data.search} />
           <PaginationForDefaultTable loadPokemon={loadPokemon} />
       </Container>
+      
     </>
   )
 
