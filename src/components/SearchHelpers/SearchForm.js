@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import { Button, Grid } from "@mui/material";
-import { TypeSelectBox } from '../TypeSelectBox';
+import { TypeSelectBox } from '../Create Pokemon Components/TypeSelectBox';
 
 
 export const SearchForm = ({ type1, setType1, type2, setType2, handleChange, handleSubmit }) => {
