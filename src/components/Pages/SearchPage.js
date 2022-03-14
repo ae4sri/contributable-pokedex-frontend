@@ -142,8 +142,7 @@ export const SearchPage = () => {
 
   return (
     <>
-      <br />
-      <br />
+
 
       <SearchForm values={values}
         type1={type1} setType1={setType1}
@@ -151,7 +150,7 @@ export const SearchPage = () => {
         setValues={setValues}
         handleChange={handleChange}
         handleSubmit={handleSubmit} />
-
+        <br />
       <Container>
         <Table />
       </Container>
