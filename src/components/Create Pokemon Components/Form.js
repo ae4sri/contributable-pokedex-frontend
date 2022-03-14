@@ -32,7 +32,9 @@ export const Form = () => {
   const navigate = useNavigate()
   const [addPokemon] = useMutation(ADD_POKEMON)
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
   const [visibility, setVisibility] = useState('')
+
   const [values, setValues] = useState({
     name: '',
     hp: '',
@@ -52,7 +54,7 @@ export const Form = () => {
   const [type1, setType1] = useState('')
   const [type2, setType2] = useState('')
 
-  const AlertMessage = () => {
+  const ErrorMessage = () => {
     if (error) {
         return (
             <Alert severity="error">{error}</Alert>
@@ -63,6 +65,16 @@ export const Form = () => {
     )
 }
 
+const SuccessMessage = () => {
+  if (success) {
+    return (
+    <Alert severity='success'>{success}</Alert>
+    )
+  }
+  return (
+    <></>
+  )
+}
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -91,7 +103,15 @@ export const Form = () => {
         }
       })
 
-      navigate('/')
+      
+      setSuccess(`${values.name} has been successfully added to the Pokedex. Redirecting
+      to home page now.`)
+      setTimeout(function () {
+        setSuccess('')
+        navigate('/')
+      }, 5000)
+
+      
 
     } catch (e) {
       setError(e.message)
@@ -128,7 +148,8 @@ export const Form = () => {
 
   return (
     <div>
-    <AlertMessage />
+    <ErrorMessage />
+    <SuccessMessage />
     <Paper sx={{ m: 3 }}>
       <Stepper activeStep={activeStep}>
         {steps.map((label) => {
